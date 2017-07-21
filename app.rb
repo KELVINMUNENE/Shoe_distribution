@@ -14,3 +14,7 @@ get '/' do
   erb :index
 end
 
+get '/stores' do
+  @stores = Store.all
+  erb :stores
+end
