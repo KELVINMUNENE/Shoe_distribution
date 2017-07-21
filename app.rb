@@ -39,3 +39,8 @@ get '/stores/:id' do
   erb :store
 end
 
+post '/brands/new' do
+  name = params["name"]
+  brand = Brand.create({name: name})
+  redirect '/brands'
+end
