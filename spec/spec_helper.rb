@@ -22,7 +22,6 @@ Shoulda::Matchers.configure do |config|
 end
 
 
-
 RSpec.configure do |config|
   config.after(:each) do
     Brand.all().each() do |brand|
