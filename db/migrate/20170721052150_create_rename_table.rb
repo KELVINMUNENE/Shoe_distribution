@@ -1,4 +1,5 @@
-class CreateRenameTable < ActiveRecord::Migration[5.1]
+class RenameTable < ActiveRecord::Migration
   def change
+    rename_table(:brand_store, :brands_stores)
   end
 end
