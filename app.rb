@@ -32,3 +32,10 @@ post '/stores/new' do
   @brands = Brand.all
   redirect '/stores'
 end
+
+get '/stores/:id' do
+  @store = Store.find(params["id"].to_i)
+  @brands = Brand.all
+  erb :store
+end
+
