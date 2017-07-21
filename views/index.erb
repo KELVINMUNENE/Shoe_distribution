@@ -26,9 +26,28 @@
         </form>
      
    
- 
 
 
+  
    
+   <h4>View Brands</h4>
+   
+        <h5>Brands</h5>
+
+        <% if @brands.any? %>
+          <ul>
+            <% @brands.each { |brand| %>
+              <li><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
+            <% } %>
+          </ul>
+        <% else %>
+          <p>There are currently no brands<p>
+        <% end %>
+
+        <form action="/brands/new" method="post">
+          <label for="name">Shoe brand</label>
+          <input id="name" name="name" type="text">
+          <button type="submit">Add brand</button>
+        </form>
       
 
