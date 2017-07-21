@@ -1,0 +1,14 @@
+
+  <h2>Stores for <%= @brand.name %>:</h2>
+
+  <% if @brand.stores.any? %>
+    <ul>
+      <% @brand.stores.each { |store| %>
+        <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+      <% } %>
+    </ul>
+  <% end %>
+
+  <hr>
+  <span class="navigation"><a href="/">Home</a></span>
+

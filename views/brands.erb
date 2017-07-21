@@ -1,0 +1,30 @@
+<h1>Brands</h1>
+
+  <% if @brands.any? %>
+    <ul>
+      <% @brands.each { |brand| %>
+        <li><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
+      <% } %>
+    </ul>
+  <% else %>
+    <p>Sorry !!!! There are no brands<p>
+  <% end %>
+
+  <form action="/brands/new" method="post">
+    <label for="name">Shoe brand</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add Brand</button>
+  </form>
+  <hr>
+  <span class="navigation"><a href="/">Home</a></span>
+</div>
+
+
+
+
+
+
+
+
+
+
