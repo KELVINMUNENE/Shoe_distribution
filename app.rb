@@ -75,3 +75,12 @@ post '/stores/:id/brand/new' do
   @store.brands.push(brand)
   redirect "/stores/#{@store.id}"
 end
+
+delete '/stores/:id' do
+  @store = Store.find(params["id"].to_i)
+  @store.delete
+  @stores = Store.all
+  @brands = Brand.all
+  @brands.each { |brand| brand.stores.destroy(@store) }
+  redirect '/stores'
+end
