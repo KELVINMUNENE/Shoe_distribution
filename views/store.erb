@@ -9,7 +9,6 @@
   <button type="submit">Update</button>
   </form>
 
-
   <h3>Brands:</h3>
   <% if @store.brands.any? %>
     <ul>
@@ -19,9 +18,7 @@
     </ul>
   <% end %>
 
-  
-
-   <h3>Add Brands from distribution database</h3>
+  <h3>Add Brands from distribution database</h3>
   <% if @brands.any? %>
     <form action="/stores/<%= @store.id %>/brand" method="post">
       <input id="store_id" name="store_id" type="hidden" value="<%= @store.id() %>">
@@ -35,7 +32,7 @@
     </form>
   <% end %>
 
-<h3>Add new Brand</h3>
+  <h3>Add new Brand</h3>
   <form action="/stores/<%= @store.id %>/brand/new" method="post">
     <label for="name">Brand name</label>
     <input id="name" name="name" type="text">
@@ -43,18 +40,63 @@
   </form>
   <br>
 
-  
+  <form action="/stores/<%= @store.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <br>
+  <button type="submit" class="btn btn-danger">Delete this store</button>
+  </form>
 
+  <hr>
+  <span class="navigation"><a href="/">Home</a></span>
+</div>
+<div class="main">
+  <h1><%= @store.name %></h1>
 
+  <h5>Update <%= @store.name %></h5>
+  <form action="/stores/<%= @store.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="new_name">New Name:</label>
+  <input id="new_name" name="new_name" type="text">
+  <button type="submit">Update</button>
+  </form>
 
+  <h3>Brands:</h3>
+  <% if @store.brands.any? %>
+    <ul>
+      <% @store.brands.each { |brand| %>
+        <li></a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
+      <% } %>
+    </ul>
+  <% end %>
 
+  <h3>Add Brands from distribution database</h3>
+  <% if @brands.any? %>
+    <form action="/stores/<%= @store.id %>/brand" method="post">
+      <input id="store_id" name="store_id" type="hidden" value="<%= @store.id() %>">
+      <label for="brand_id">Select a Brand</label>
+        <select id='brand_id' name='brand_id' type='text'>
+          <% @brands.each { |brand| %>
+            <option value="<%= brand.id %>"> <%= brand.name %></option>
+          <% } %>
+        </select>
+      <button type="submit">Add</button>
+    </form>
+  <% end %>
 
+  <h3>Add new Brand</h3>
+  <form action="/stores/<%= @store.id %>/brand/new" method="post">
+    <label for="name">Brand name</label>
+    <input id="name" name="name" type="text">
+    <button type="submit">Add</button>
+  </form>
+  <br>
 
+  <form action="/stores/<%= @store.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <br>
+  <button type="submit" class="btn btn-danger">Delete this store</button>
+  </form>
 
-
-
-
-
-
-
-
+  <hr>
+  <span class="navigation"><a href="/">Home</a></span>
+</div>
