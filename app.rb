@@ -18,3 +18,8 @@ get '/stores' do
   @stores = Store.all
   erb :stores
 end
+
+get '/brands' do
+  @brands = Brand.all
+  erb :brands
+end
