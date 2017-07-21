@@ -44,3 +44,15 @@ post '/brands/new' do
   brand = Brand.create({name: name})
   redirect '/brands'
 end
+
+get '/brands/:id' do
+  @brand = Brand.find(params["id"].to_i)
+  @stores = Store.all
+  erb :brand
+end
+
+get '/stores/:id' do
+  @store = Store.find(params["id"].to_i)
+  @brands = Brand.all
+  erb :store
+end
